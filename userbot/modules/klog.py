@@ -7,15 +7,14 @@ import asyncio
 
 from telethon import events
 
-from userbot import BOTLOG_CHATID
-from userbot import CMD_HELP, LOGS, bot
+from userbot import BOTLOG_CHATID, CMD_HELP, LOGS, bot
+from userbot.events import register
 from userbot.modules.sql_helper import no_log_pms_sql
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
 from userbot.modules.vcg import vcmention
 from userbot.utils import _format, edit_delete, edit_or_reply
 from userbot.utils.tools import media_type
 
-from userbot.events import register
 
 class LOG_CHATS:
     def __init__(self):
@@ -34,7 +33,9 @@ async def logaddjoin(ramubot):
     if not (user and user.is_self):
         return
     if hasattr(chat, "username") and chat.username:
-        chat = f"[{chat.title}](https://t.me/{chat.username}/{ramubot.action_message.id})"
+        chat = (
+            f"[{chat.title}](https://t.me/{chat.username}/{ramubot.action_message.id})"
+        )
     else:
         chat = f"[{chat.title}](https://t.me/c/{chat.id}/{ramubot.action_message.id})"
     if ramubot.user_added:

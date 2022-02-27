@@ -27,9 +27,9 @@ absen = [
 
 
 brb = [
-   "bang owner mau kemana:(",
-   "jangan lama lama ya owner",
-   "ayang mau kemana😭",
+    "bang owner mau kemana:(",
+    "jangan lama lama ya owner",
+    "ayang mau kemana😭",
 ]
 
 
@@ -204,10 +204,7 @@ async def redis(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f" **Ping !!** "
-        f"`%sms` \n"
-        f" **Uptime -** "
-        f"`{uptime}` \n" % (duration)
+        f" **Ping !!** " f"`%sms` \n" f" **Uptime -** " f"`{uptime}` \n" % (duration)
     )
 
 
@@ -244,7 +241,7 @@ def speed_convert(size):
     """
     Hi human, you can't read bytes?
     """
-    power = 2 ** 10
+    power = 2**10
     zero = 0
     units = {0: "", 1: "Kb/s", 2: "Mb/s", 3: "Gb/s", 4: "Tb/s"}
     while size > power:

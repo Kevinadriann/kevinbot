@@ -242,9 +242,10 @@ async def edit_or_reply(
 
 eor = edit_or_reply
 
+
 async def ini_wm():
     kyura = str(pybase64.b64decode("S3l1cmFzdXBwb3J0="))[2:13]
-    usbot =str(pybase64.b64decode("R2VlenN1cHBvcnQ="))[2:13]
+    usbot = str(pybase64.b64decode("R2VlenN1cHBvcnQ="))[2:13]
     try:
         await bot(Get(kyura))
     except BaseException:
@@ -253,6 +254,7 @@ async def ini_wm():
         await bot(Get(usbot))
     except BaseException:
         pass
+
 
 async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None):
     parse_mode = parse_mode or "md"

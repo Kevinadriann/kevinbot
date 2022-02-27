@@ -228,7 +228,6 @@ EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✗"
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/sylucaz"
 
 
-
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
@@ -342,6 +341,7 @@ except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
+
 async def checking():
     gocheck = pybase64.b64decode("QGt5dXJhcHJvamVjdHM=")
     checker = pybase64.b64decode("QEt5dXJhU3VwcG9ydA==")
@@ -364,6 +364,7 @@ with bot:
             "Harap Join Ke Group Support @KyuraSupport untuk melihat update userbot"
             "Jangan Keluar!!")
         quit(1)
+
 
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
@@ -911,19 +912,26 @@ with bot:
                     link_preview=True,
                 )
             else:
-                result = builder.article(" **⚡Kevin-Userbot​⚡**",
-                                         text="""°𝙆𝙀𝙑𝙄𝙉-𝙐𝙎𝙀𝙍𝘽𝙊𝙏°""",
-                                         buttons=[[custom.Button.url("ᴋʏᴜʀᴀ​",
-                                                                     "https://github.com/Kevinadriann/kevin-userbot"),
-                                                   custom.Button.url("ᴄʜᴀɴɴᴇʟ​",
-                                                                     "t.me/gabutnyaasy"),
-                                                   ],
-                                                  [custom.Button.url("ʟɪᴄᴇɴsᴇ​",
-                                                                     "https://github.com/Kevinadriann/kevin-userbot/LICENSE",
-                                                                     )],
-                                                  ],
-                                         link_preview=False,
-                                         )
+                result = builder.article(
+                    " **⚡Kevin-Userbot​⚡**",
+                    text="""°𝙆𝙀𝙑𝙄𝙉-𝙐𝙎𝙀𝙍𝘽𝙊𝙏°""",
+                    buttons=[
+                        [
+                            custom.Button.url(
+                                "ᴋʏᴜʀᴀ​",
+                                "https://github.com/Kevinadriann/kevin-userbot"),
+                            custom.Button.url(
+                                "ᴄʜᴀɴɴᴇʟ​",
+                                "t.me/gabutnyaasy"),
+                        ],
+                        [
+                            custom.Button.url(
+                                "ʟɪᴄᴇɴsᴇ​",
+                                "https://github.com/Kevinadriann/kevin-userbot/LICENSE",
+                            )],
+                    ],
+                    link_preview=False,
+                )
             await event.answer([result] if result else None)
 
         @ tgbot.on(
